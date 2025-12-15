@@ -20,3 +20,7 @@ func Writef(msg string, args... interface{}) {
 func Writeln(msg string, args... interface{}) {
 	Writef(msg + "\r\n", args...)
 }
+
+func WriteSeparator() {
+	Writeln("-----------------------------------------------------------------------")
+}

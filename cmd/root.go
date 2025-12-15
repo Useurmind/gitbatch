@@ -4,6 +4,7 @@ import (
 	"github.com/spf13/cobra"
 
 	"github.com/Useurmind/gitbatch/cmd/config"
+	"github.com/Useurmind/gitbatch/cmd/project"
 	"github.com/Useurmind/gitbatch/cmd/exec"
 	pconfig "github.com/Useurmind/gitbatch/pkg/config"
 	"github.com/Useurmind/gitbatch/pkg/output"
@@ -22,6 +23,7 @@ var rootCmd = &cobra.Command{
 func Init() {
 	config.Init(rootCmd)
 	exec.Init(rootCmd)
+	project.Init(rootCmd)
 }
 
 func Execute() error {

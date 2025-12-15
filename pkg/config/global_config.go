@@ -29,7 +29,7 @@ func (c *GlobalConfig) GetShellOrDefault(shellName string) (*ShellExecConfig, er
 		}
 	}
 
-	return nil, fmt.Errorf("Could not find shell %s in config", shellName)
+	return nil, fmt.Errorf("could not find shell %s in config", shellName)
 }
 
 type ShellExecConfig struct {
@@ -49,8 +49,15 @@ type ShellExecConfig struct {
 
 func GetDefaultConfig() *GlobalConfig {
 	return &GlobalConfig{
-		DefaultShell: "pwsh",
+		DefaultShell: "bash",
 		Shells: []*ShellExecConfig{
+			{
+				Name: "bash",
+				Bin: "bash",
+				Args: []string{},
+				CmdArg: "-c",
+				ScriptArg: "-s",
+			},
 			{
 				Name: "pwsh",
 				Bin: "pwsh",
