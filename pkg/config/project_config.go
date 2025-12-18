@@ -88,6 +88,9 @@ func ExtendProjectFromSubdirOf(searchPath string, projectConfigPath string) erro
 		return err
 	}
 	for _, subdir := range subDirs {
+		if !subdir.IsDir() {
+			continue
+		}
 		gitRepoDir := path.Join(searchPath, subdir.Name())
 		gitDir := path.Join(gitRepoDir, ".git")
 		_, err=  os.Stat(gitDir)
